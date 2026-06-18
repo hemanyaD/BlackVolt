@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/*
+  BlackVolt theme tokens.
+  Single source of truth for brand colors and font wiring.
+  - Colors here generate Tailwind utilities (e.g. `bg-charcoal`, `text-gold`).
+  - Font CSS variables (--font-display / --font-sans) are set on <html> in
+    layout.tsx via next/font. To change fonts, edit layout.tsx; to change
+    colors, edit the values below (and mirror them in src/lib/theme.ts for JS).
+*/
+@theme {
+  --color-charcoal: #281a0f; /* deep espresso (primary dark) */
+  --color-charcoal-800: #34251a;
+  --color-charcoal-700: #46331f;
+  --color-gold: #c9a24b; /* accent */
+  --color-gold-bright: #e0bd6a;
+  --color-cream: #ece9e1; /* light background */
+  --color-bone: #f5f3ed;
+
+  --font-display: var(--font-display), "Archivo", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --background: var(--color-cream);
+  --foreground: var(--color-charcoal);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display headings use the condensed display face by default. */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
+/* Visible, on-brand focus ring for keyboard users across the site. */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* When the bean cursor is active (fine-pointer devices), hide the native one.
+   Form fields keep their text cursor for usability. */
+html.bean-cursor-active,
+html.bean-cursor-active a,
+html.bean-cursor-active button,
+html.bean-cursor-active [role="button"] {
+  cursor: none;
+}
+
+/* Respect users who prefer reduced motion: disable animation/transitions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

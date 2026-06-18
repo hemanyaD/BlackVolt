@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="96" viewBox="0 0 360 96" role="img" aria-label="BlackVolt">
+  <!-- Placeholder wordmark. Mirrors <Logo /> in src/components/Logo.tsx. Swap freely. -->
+  <rect width="360" height="96" fill="#2B2723"/>
+  <text x="20" y="62" font-family="Archivo, Arial, sans-serif" font-size="52" font-weight="900" letter-spacing="-1" fill="#ECE9E1">BLACK</text>
+  <path d="M205 20 L182 52 h15 l-4 24 L218 40 h-15 l4-20z" fill="#C9A24B"/>
+  <text x="222" y="62" font-family="Archivo, Arial, sans-serif" font-size="52" font-weight="900" letter-spacing="-1" fill="#C9A24B">VOLT</text>
+</svg>
