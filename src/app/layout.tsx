@@ -3,8 +3,10 @@ import { Archivo, Inter } from "next/font/google";
 import "./globals.css";
 import { brand } from "@/lib/theme";
 import { CartProvider } from "@/context/CartContext";
+import { UserProvider } from "@/context/UserContext";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SiteChrome } from "@/components/SiteChrome";
 import { Preloader } from "@/components/Preloader";
 import { BeanCursor } from "@/components/BeanCursor";
 import { PageWipe } from "@/components/PageWipe";
@@ -72,11 +74,13 @@ export default function RootLayout({
         <Preloader />
         <BeanCursor />
         <PageWipe />
-        <CartProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </CartProvider>
+        <UserProvider>
+          <CartProvider>
+            <SiteChrome navbar={<Navbar />} footer={<Footer />}>
+              {children}
+            </SiteChrome>
+          </CartProvider>
+        </UserProvider>
       </body>
     </html>
   );

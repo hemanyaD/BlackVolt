@@ -66,7 +66,6 @@ export function BrewStory() {
     [0, 0.05, 0.36, 0.44],
     [0, 1, 1, 0],
   );
-  const bottleRotate = useTransform(scrollYProgress, [0, 0.12], [-12, -38]);
   const coffeeStream = useTransform(
     scrollYProgress,
     [0.05, 0.12, 0.34, 0.4],
@@ -131,40 +130,87 @@ export function BrewStory() {
                 </clipPath>
               </defs>
 
-              {/* Concentrate bottle, pouring */}
-              <motion.g
-                style={{ opacity: bottleOpacity, rotate: bottleRotate }}
-                transformTemplate={(_, t) => `translate(150px, 60px) ${t}`}
-              >
-                <rect
-                  x="-16"
-                  y="-34"
-                  width="32"
-                  height="60"
-                  rx="8"
-                  fill={colors.charcoal700}
-                  stroke={colors.gold}
-                  strokeWidth="2"
-                />
-                <rect x="-6" y="-44" width="12" height="12" rx="2" fill={colors.gold} />
+              {/* Step 1 — BlackVolt bottle (dark glass, gold neck), tilted to
+                  pour concentrate from its neck into the glass. */}
+              <motion.g style={{ opacity: bottleOpacity }}>
+                <g transform="translate(128 58) rotate(34)">
+                  {/* body */}
+                  <rect
+                    x="-14"
+                    y="-84"
+                    width="28"
+                    height="52"
+                    rx="6"
+                    fill={colors.charcoal700}
+                    stroke={colors.gold}
+                    strokeWidth="2"
+                  />
+                  {/* label */}
+                  <rect x="-14" y="-72" width="28" height="16" fill={colors.cream} />
+                  {/* shoulder */}
+                  <path
+                    d="M-14 -32 L14 -32 L6 -14 L-6 -14 Z"
+                    fill={colors.charcoal700}
+                    stroke={colors.gold}
+                    strokeWidth="2"
+                    strokeLinejoin="round"
+                  />
+                  {/* neck + cap (the pour spout) */}
+                  <rect x="-5" y="-14" width="10" height="14" rx="2" fill={colors.gold} />
+                </g>
               </motion.g>
 
-              {/* Coffee pour stream */}
+              {/* Concentrate stream — dark, from the bottle neck */}
               <motion.rect
-                x="132"
-                y="64"
-                width="5"
-                height="58"
-                rx="2.5"
-                fill={colors.gold}
+                x="125"
+                y="58"
+                width="6"
+                height="64"
+                rx="3"
+                fill="#241710"
                 style={{ opacity: coffeeStream }}
               />
-              {/* Milk pour stream */}
+
+              {/* Step 2 — Milk bottle (cream), tilted to pour milk from its neck.
+                  Appears only after the concentrate, on the other side. */}
+              <motion.g style={{ opacity: milkOpacity }}>
+                <g transform="translate(112 56) rotate(-32)">
+                  <rect
+                    x="-14"
+                    y="-84"
+                    width="28"
+                    height="52"
+                    rx="6"
+                    fill={colors.cream}
+                    stroke={colors.charcoal}
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M-14 -32 L14 -32 L6 -14 L-6 -14 Z"
+                    fill={colors.cream}
+                    stroke={colors.charcoal}
+                    strokeWidth="2"
+                    strokeLinejoin="round"
+                  />
+                  <rect
+                    x="-5"
+                    y="-14"
+                    width="10"
+                    height="14"
+                    rx="2"
+                    fill={colors.cream}
+                    stroke={colors.charcoal}
+                    strokeWidth="2"
+                  />
+                </g>
+              </motion.g>
+
+              {/* Milk stream — cream, from the milk bottle neck */}
               <motion.rect
-                x="104"
-                y="60"
+                x="109"
+                y="56"
                 width="6"
-                height="62"
+                height="66"
                 rx="3"
                 fill={colors.cream}
                 style={{ opacity: milkOpacity }}

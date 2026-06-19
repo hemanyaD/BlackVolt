@@ -10,20 +10,6 @@ import type { Product } from "@/types";
 */
 export const products: Product[] = [
   {
-    slug: "midnight-cold-brew",
-    name: "Midnight Cold Brew",
-    type: "cold-brew",
-    shortDesc: "Smooth, low-acid cold brew concentrate. Just add water or milk.",
-    longDesc:
-      "Steeped slow and cold for 18 hours, Midnight is our flagship concentrate. Mellow, chocolatey, and impossibly smooth. Pour an ounce over ice, top with water or milk, and you've got café-grade cold brew in ten seconds flat. No machine, no queue, no ₹300 bill.",
-    priceINR: 449,
-    cupsPerBottle: 18,
-    sizeMl: 500,
-    strength: 4,
-    imagePlaceholder: "charcoal",
-    badges: ["Bestseller"],
-  },
-  {
     slug: "high-voltage-espresso",
     name: "High Voltage Espresso",
     type: "hot",
@@ -35,6 +21,20 @@ export const products: Product[] = [
     sizeMl: 500,
     strength: 5,
     imagePlaceholder: "gold",
+    badges: ["Bestseller"],
+  },
+  {
+    slug: "midnight-cold-brew",
+    name: "Midnight Cold Brew",
+    type: "cold-brew",
+    shortDesc: "Smooth, low-acid cold brew concentrate. Just add water or milk.",
+    longDesc:
+      "Steeped slow and cold for 18 hours, Midnight is our flagship concentrate. Mellow, chocolatey, and impossibly smooth. Pour an ounce over ice, top with water or milk, and you've got café-grade cold brew in ten seconds flat. No machine, no queue, no ₹300 bill.",
+    priceINR: 449,
+    cupsPerBottle: 18,
+    sizeMl: 500,
+    strength: 4,
+    imagePlaceholder: "charcoal",
     badges: ["Bestseller"],
   },
   {

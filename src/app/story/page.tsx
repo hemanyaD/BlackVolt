@@ -4,6 +4,8 @@ import { Reveal } from "@/components/Reveal";
 import { ButtonLink } from "@/components/Button";
 import { MaskReveal } from "@/components/MaskReveal";
 import { TestimonialList } from "@/components/TestimonialList";
+import { WaveDivider } from "@/components/WaveDivider";
+import { colors } from "@/lib/theme";
 
 export const metadata: Metadata = {
   title: "Our Story",
@@ -56,12 +58,12 @@ export default function StoryPage() {
       <Section tone="charcoal" className="pt-28">
         <Reveal>
           <Eyebrow>Our story</Eyebrow>
-          <h1 className="max-w-3xl text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl">
+          <h1 className="max-w-4xl text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-7xl">
             <MaskReveal>
               We were tired of choosing between good coffee and a fair price.
             </MaskReveal>
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-cream/80">
+          <p className="mt-6 max-w-2xl text-xl text-cream/80 sm:text-2xl">
             BlackVolt started with a simple frustration: brilliant Indian coffee
             grows a few hours from our cities, yet a decent cup means a ₹300 bill
             or a fussy machine. So we concentrated it, literally.
@@ -69,35 +71,37 @@ export default function StoryPage() {
         </Reveal>
       </Section>
 
+      <WaveDivider top={colors.charcoal} bottom={colors.cream} />
+
       <Section tone="cream">
         <div className="grid gap-12 md:grid-cols-2">
           <Reveal>
-            <h2 className="text-3xl font-black uppercase tracking-tight">
+            <h2 className="text-4xl font-black uppercase tracking-tight sm:text-5xl">
               The jolt idea
             </h2>
-            <p className="mt-4 text-charcoal/75">
+            <p className="mt-5 text-lg text-charcoal/75">
               Coffee shops sell you water, milk, and convenience at a steep
               markup. The actual coffee is a tiny fraction of the cost. We asked:
               what if we sold you just the coffee, brewed properly and
               concentrated hard, then let you add the water and milk at home?
             </p>
-            <p className="mt-4 text-charcoal/75">
+            <p className="mt-4 text-lg text-charcoal/75">
               One 500ml bottle becomes 15–20 café-grade cups. That&apos;s about
               ₹25 a cup, made in ten seconds, with no machine and no queue. A
               jolt in every drop.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="text-3xl font-black uppercase tracking-tight">
+            <h2 className="text-4xl font-black uppercase tracking-tight sm:text-5xl">
               Estate to bottle
             </h2>
-            <p className="mt-4 text-charcoal/75">
+            <p className="mt-5 text-lg text-charcoal/75">
               We buy green coffee directly from estates in Chikmagalur and Coorg,
               paying growers fairly and skipping the middlemen. Beans are roasted
               in small batches specifically for concentration, a profile that
               stays bold and smooth even after you drown it in milk and ice.
             </p>
-            <p className="mt-4 text-charcoal/75">
+            <p className="mt-4 text-lg text-charcoal/75">
               Everything ships in recyclable glass. Concentrate means a fraction
               of the packaging of ready-to-drink cans, and a lot fewer single-use
               café cups in the bin.
@@ -106,13 +110,15 @@ export default function StoryPage() {
         </div>
       </Section>
 
+      <WaveDivider top={colors.cream} bottom={colors.charcoal} flip />
+
       <TestimonialList reviews={testimonials} />
 
       <Section tone="charcoal">
         <Reveal>
           <div className="flex flex-col items-start gap-6">
-            <h2 className="max-w-2xl text-3xl font-black uppercase tracking-tight sm:text-4xl">
-              Ready to taste the difference?
+            <h2 className="max-w-3xl text-4xl font-black uppercase tracking-tight sm:text-6xl">
+              <MaskReveal>Ready to taste the difference?</MaskReveal>
             </h2>
             <ButtonLink href="/shop" size="lg">
               Shop the concentrate

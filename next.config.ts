@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // better-sqlite3 is a native module — keep it out of the server bundle so
+  // Turbopack doesn't try to trace/bundle the .node binary.
+  serverExternalPackages: ["better-sqlite3"],
 };
 
 export default nextConfig;

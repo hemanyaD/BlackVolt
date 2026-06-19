@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { useCart } from "@/context/CartContext";
+import { useUser } from "@/context/UserContext";
 
 const links = [
   { href: "/shop", label: "Shop" },
@@ -15,6 +16,7 @@ const links = [
 export function Navbar() {
   const pathname = usePathname();
   const { count } = useCart();
+  const { user } = useUser();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -52,6 +54,16 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href={user ? "/account" : "/login"}
+            className={`font-display text-sm font-bold uppercase tracking-wide transition-colors hover:text-gold ${
+              pathname.startsWith("/account") || pathname.startsWith("/login")
+                ? "text-gold"
+                : "text-cream"
+            }`}
+          >
+            {user ? "Account" : "Sign in"}
+          </Link>
           <CartLink count={count} />
         </div>
 
@@ -98,6 +110,13 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href={user ? "/account" : "/login"}
+              onClick={() => setMenuOpen(false)}
+              className="py-3 font-display text-base font-bold uppercase tracking-wide text-cream hover:text-gold"
+            >
+              {user ? "Account" : "Sign in"}
+            </Link>
           </div>
         </div>
       )}

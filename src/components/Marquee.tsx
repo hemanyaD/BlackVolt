@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { Bolt } from "@/components/Logo";
 
 /**
  * Infinite horizontal marquee band. The phrase is duplicated and the track
@@ -33,7 +34,7 @@ export function Marquee({
             className="flex items-center gap-8 font-display text-sm font-black uppercase tracking-[0.2em]"
           >
             {item}
-            <span className="text-charcoal/50">⚡</span>
+            <Bolt className="h-4 w-4 shrink-0 text-charcoal/50" />
           </span>
         ))}
       </motion.div>

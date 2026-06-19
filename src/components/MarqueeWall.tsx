@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { Bolt } from "@/components/Logo";
 
 /*
   A wall of large display-type marquee rows scrolling in alternating directions,
@@ -49,7 +50,7 @@ function Row({
       {Array.from({ length: 4 }).map((_, i) => (
         <span key={i} className="flex items-center">
           {text}
-          <span className="px-6 text-gold/70">⚡</span>
+          <Bolt className="mx-6 h-7 w-7 shrink-0 text-gold/70" />
         </span>
       ))}
     </span>
